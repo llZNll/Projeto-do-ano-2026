@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Systems Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <header class="top-header fade-in">
+            <div class="status-indicator">
+                <i class="bi bi-globe globe-icon"></i>
+                <h2>All Systems Operational <i class="bi bi-chevron-down chevron"></i></h2>
+            </div>
+            <div class="header-actions">
+                <div class="search-bar">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" placeholder="Search devices...">
+                </div>
+                <button class="menu-btn"><i class="bi bi-list"></i></button>
+            </div>
+        </header>
+
+        <section class="metrics-grid fade-in stagger-1">
+            <div class="card">
+                <div class="card-icon"><i class="bi bi-pc-display-horizontal"></i></div>
+                <div class="card-data">
+                    <span class="label">Connected Devices</span>
+                    <span class="value">78</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                <div class="card-data">
+                    <span class="label">Latency</span>
+                    <div class="value-wrapper">
+                        <span class="value" id="top-latency-val">23</span><span class="unit">ms</span>
+                        <span class="trend up"><i class="bi bi-arrow-up-short"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="bi bi-speedometer2"></i></div>
+                <div class="card-data">
+                    <span class="label">Avg. Uptime</span>
+                    <span class="value">99<span class="unit">%</span></span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="bi bi-shield-check"></i></div>
+                <div class="card-data">
+                    <span class="label">Issues Detected</span>
+                    <span class="value">0</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="table-section fade-in stagger-2">
+            <div class="section-header">
+                <h3>CONNECTED DEVICES</h3>
+            </div>
+            <div class="table-container">
+                <table id="devicesTable">
+                    <thead>
+                        <tr>
+                            <th>Device Name</th>
+                            <th>IP Address</th>
+                            <th>Uptime</th>
+                            <th>Latency</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="chart-section fade-in stagger-3">
+            <div class="chart-header">
+                <h3>LATENCY <span style="color: var(--text-secondary); text-transform: none; font-weight: 400; margin-left: 8px;">(Live Data)</span></h3>
+                <span class="peak">Peak <span id="peak-latency-val">102</span> ms</span>
+            </div>
+            <div class="chart-body">
+                <div class="chart-summary">
+                    <span class="chart-value"><span id="main-latency-val">23</span><span class="unit">ms</span></span>
+                    <span class="chart-avg" id="avg-latency-val">Avg. 27 ms</span>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="latencyChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
